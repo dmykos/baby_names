@@ -2,6 +2,7 @@ import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:firebase_core/firebase_core.dart';
 import 'package:flutter/material.dart';
 
+final _firestore = FirebaseFirestore.instance;
 void main() => runApp(MyApp());
 
 final dummySnapshot = [
@@ -39,21 +40,14 @@ class _MyHomePageState extends State<MyHomePage> {
   }
 
   Widget _buildBody(BuildContext context) {
-    return FutureBuilder<QuerySnapshot>(
-      future: getData(),
+    return StreamBuilder<QuerySnapshot>(
+      stream: _firestore.collection('baby').snapshots(),
       builder: (context, snapshot) {
         if (!snapshot.hasData) return LinearProgressIndicator();
 
         return _buildList(context, snapshot.data.docs);
       },
     );
-  }
-
-  Future<QuerySnapshot> getData() async {
-    await Firebase.initializeApp();
-    return await FirebaseFirestore.instance
-        .collection("baby")
-        .get();
   }
 
   Widget _buildList(BuildContext context, List<DocumentSnapshot> snapshot) {
@@ -77,7 +71,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListTile(
           title: Text(record.name),
           trailing: Text(record.votes.toString()),
-          onTap: () => print(record),
+            onTap: () => record.reference.update({'votes': record.votes + 1})
         ),
       ),
     );
