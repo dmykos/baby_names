@@ -5,13 +5,6 @@ import 'package:flutter/material.dart';
 final _firestore = FirebaseFirestore.instance;
 void main() => runApp(MyApp());
 
-final dummySnapshot = [
-  {"name": "Filip", "votes": 15},
-  {"name": "Abraham", "votes": 14},
-  {"name": "Richard", "votes": 11},
-  {"name": "Ike", "votes": 10},
-  {"name": "Justin", "votes": 1},
-];
 
 class MyApp extends StatelessWidget {
   @override
@@ -71,7 +64,7 @@ class _MyHomePageState extends State<MyHomePage> {
         child: ListTile(
           title: Text(record.name),
           trailing: Text(record.votes.toString()),
-            onTap: () => record.reference.update({'votes': record.votes + 1})
+            onTap: () => record.reference.update({'votes': FieldValue.increment(1)})
         ),
       ),
     );
