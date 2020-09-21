@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "294242291795",
+    "firebase_url": "https://dmykos-baby-names-app-db.firebaseio.com",
+    "project_id": "dmykos-baby-names-app-db",
+    "storage_bucket": "dmykos-baby-names-app-db.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:294242291795:android:9cb687696a2c0f42b636a6",
+        "android_client_info": {
+          "package_name": "com.dmykos.baby_names"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "294242291795-nff8k6rpcn5b0d4men8tk03gfh8607ig.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAnVuAo_tnlIu3KIkMHi7HN0czeR_jlDtc"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "294242291795-nff8k6rpcn5b0d4men8tk03gfh8607ig.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
